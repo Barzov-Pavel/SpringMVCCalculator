@@ -14,7 +14,7 @@ public class CalculatorController {
                             @RequestParam(value = "action", required = false) String action,
                             Model model) {
 
-        Integer answer = 0;
+        double answer = 0;
         if ("multiplication".equals(action)) {
             answer = a * b;
         } else if ("addition".equals(action)) {
@@ -22,10 +22,10 @@ public class CalculatorController {
         } else if ("subtraction".equals(action)) {
             answer = a - b;
         } else if ("division".equals(action)) {
-            answer = a / b;
+            answer = a / (double)b;
         }
 
-        model.addAttribute("answer", answer.toString());
+        model.addAttribute("answer", answer);
 
         return "/calculator/calc";
     }
